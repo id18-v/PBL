@@ -1,0 +1,45 @@
+<!-- templates/car_details.html -->
+{% extends "layout.html" %}
+{% block content %}
+    <h2>{{ car['make'] }} {{ car['model'] }} Details</h2>
+
+    <div class="card">
+        <h3>Car Information</h3>
+        <p><strong>License Plate:</strong> {{ car['license_plate'] }}</p>
+        <p><strong>Make:</strong> {{ car['make'] }}</p>
+        <p><strong>Model:</strong> {{ car['model'] }}</p>
+        <p><strong>Color:</strong> {{ car['color'] }}</p>
+        <p><strong>Year:</strong> {{ car['year'] }}</p>
+
+        <a href="{{ url_for('add_speed', car_id=car['id']) }}" class="btn">Add Speed Record</a>
+    </div>
+
+    <h3>Speed Records</h3>
+
+    {% if speed_records %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Date/Time</th>
+                    <th>Speed (mph)</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in speed_records %}
+                    <tr>
+                        <td>{{ record['timestamp'] }}</td>
+                        <td class="{% if record['speed'] > 70 %}speed-high{% else %}speed-normal{% endif %}">
+                            {{ record['speed'] }} mph
+                        </td>
+                        <td>{{ record['location'] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No speed records available for this car.</p>
+    {% endif %}
+
+    <a href="{{ url_for('index') }}" class="btn">Back to Overview</a>
+{% endblock %}

@@ -15,7 +15,7 @@ def home():
         if action == 'start':
             session['start_time'] = time.time()
             session['distance'] = distance
-            return render_template('index.html',
+            return render_template('login.html',
                                    status='started',
                                    distance=distance)
 
@@ -39,12 +39,12 @@ def home():
 
                     return redirect(url_for('results'))
                 else:
-                    return render_template('index.html', error="Eroare: timpul nu poate fi zero sau negativ.")
+                    return render_template('login.html', error="Eroare: timpul nu poate fi zero sau negativ.")
             else:
-                return render_template('index.html', error="Trebuie să înregistrezi mai întâi timpul de start.")
+                return render_template('login.html', error="Trebuie să înregistrezi mai întâi timpul de start.")
 
     # Afișare inițială sau după resetare
-    return render_template('index.html', status='init')
+    return render_template('login.html', status='init')
 
 
 @app.route('/results')

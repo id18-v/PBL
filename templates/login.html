@@ -3,13 +3,44 @@
 <head>
 <title>Title of the document</title>
      <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+             <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+
 </head>
 
 <body>
-   <h2>My Name</h2>
+      <nav>
+    <!-- Checkbox for toggling menu -->
+    <input type="checkbox" id="check">
+    <!-- Menu icon -->
+    <label for="check" class="checkbtn">
+      <i class="fas fa-bars"></i>
+    </label>
+    <!-- Site logo -->
+    <label class="logo">MTraffic</label>
+    <!-- Navigation links -->
+    <ul>
+      <li><a class="active" href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Feedback</a></li>
+    </ul>
+  </nav>
+                   <div class="bod">
+                       <div class="login-container">
+                        <div class="login-form">
+                            <h1>User Login</h1>
+                            <form action="/admin-login" method="post"> <div class="form-group mb-3"> <label for="admin_username">Username/Email:</label>
+                                    <input type="text" class="form-control" id="admin_username" name="username" required>
+                                </div>
+                                <div class="form-group mb-3"> <label for="admin_password">Password:</label>
+                                    <input type="password" class="form-control" id="admin_password" name="password" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Login</button>
+                            </form>
+                            </div>
 
-
-                    <div class="login-container">
+                     <div class="login-container">
                         <div class="login-form">
                             <h1>Admin Login</h1>
                             <form action="/admin-login" method="post"> <div class="form-group mb-3"> <label for="admin_username">Username/Email:</label>
@@ -18,30 +49,11 @@
                                 <div class="form-group mb-3"> <label for="admin_password">Password:</label>
                                     <input type="password" class="form-control" id="admin_password" name="password" required>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Admin Login</button>
+                                <button type="submit" class="btn btn-primary">Login</button>
                             </form>
                             </div>
-                    </div>
-        <div class="single-slider" style="background-image:url('{{ url_for("static", filename="img/blue_waves.jpg") }}')">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-7">
-                         <div class="text"> <h1>User Login</h1>
-                             <form action="/user-login" method="post"> <div class="form-group mb-3"> <label for="user_username">Username/Email:</label>
-                                    <input type="text" class="form-control" id="user_username" name="username" required>
-                                </div>
-                                <div class="form-group mb-3"> <label for="user_password">Password:</label>
-                                    <input type="password" class="form-control" id="user_password" name="password" required>
-                                </div>
-                                <button type="submit" class="btn btn-primary">User Login</button>
-                            </form>
-                            </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-</section>
+                     </div> </div>
+                   </div>
 </body>
 
 </html>

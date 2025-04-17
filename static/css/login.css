@@ -1,21 +1,42 @@
 body {
     font-family: Arial, sans-serif;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f9;
+}
+.bod{
+    font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
     background-color: #f4f4f9;
+        margin-left: 260px;
+
+}
+/* Resetări pentru body și html */
+
+/* Adaugă padding la body pentru a compensa înălțimea header-ului */
+body {
+        height: 100%;
+
+    padding-top: 0px; /* Ajustează această valoare în funcție de înălțimea reală a header-ului tău */
 }
 
 .login-container {
+
+    margin-left: 350px;
     display: flex;
-    gap: 20px; /* Spațiu între cele două formulare */
+    column-gap: 100px;
+    justify-content: space-between;
+        align-items: center;
+
 }
 
 .login-form {
     background: #fff;
-    padding: 20px;
+    padding: 200px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 300px;

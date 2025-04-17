@@ -2,9 +2,31 @@ from flask import Flask, render_template, request, redirect, url_for, session
 import time
 
 app = Flask(__name__)
-app.secret_key = 'viteza_secreta_key'
+ # app.secret_key = 'viteza_secreta_key'
+users = {
+    "admin": "adminpass",
+    "user": "userpass"
+}
+@app.route('/')
+def index():
+    return render_template('login.html')
 
 
+@app.route('/login', methods=['POST'])
+def login():
+    username = request.form.get('username')
+    password = request.form.get('password')
+
+    # Check credentials
+    if username in users and users[username] == password:
+        # Successful login - redirect to dashboard
+        return render_template('index.html')
+    else:
+        return render_template('index.html')
+
+# Failed login - show error
+
+"""
 @app.route('/', methods=['GET', 'POST'])
 def home():
     if request.method == 'POST':
@@ -45,6 +67,16 @@ def home():
 
     # Afișare inițială sau după resetare
     return render_template('login.html', status='init')
+def contact():
+    if request.method == 'POST':
+        if request.form['submit_button'] == 'Do Something':
+            pass # do something
+        elif request.form['submit_button'] == 'Do Something Else':
+            pass # do something else
+        else:
+            pass # unknown
+    elif request.method == 'GET':
+        return render_template('contact.html', form=form)
 
 
 @app.route('/results')
@@ -70,6 +102,6 @@ def reset():
     session.pop('distance', None)
     return redirect(url_for('home'))
 
-
+"""
 if __name__ == '__main__':
     app.run(debug=True)
